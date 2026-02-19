@@ -20,17 +20,17 @@ cliente.close()
     #Crear un socket TCP/IP
     
 
-    # TODO: Conectar el socket al servidor en la dirección y puerto especificados
+# Conectar el socket al servidor en la dirección y puerto especificados
 
-# TODO: Enviar datos al servidor (convertidos a bytes)
+#Enviar datos al servidor (convertidos a bytes)
 # sendall() asegura que todos los datos sean enviados
     
 
-# TODO: Recibir datos del servidor (hasta 1024 bytes)
+#Recibir datos del servidor (hasta 1024 bytes)
     
 
-# TODO: Decodificar e imprimir los datos recibidos
+#: Decodificar e imprimir los datos recibidos
 
-# TODO: Cerrar la conexión con el servidor
+#Cerrar la conexión con el servidor
     
 
