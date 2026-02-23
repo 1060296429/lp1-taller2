@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""
 Problema 2: Comunicación bidireccional - Cliente
 Objetivo: Crear un cliente TCP que envíe un mensaje al servidor y reciba la misma respuesta
-"""
+
 
 import socket
 
