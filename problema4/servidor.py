@@ -8,7 +8,9 @@ y sirva archivos estáticos comprendiendo headers HTTP
 import http.server
 import socket
 
-# TODO: Definir la dirección y puerto del servidor HTTP
+# Definir la dirección y puerto del servidor HTTP
+HOST = "localhost"
+PORT = 8000
 
 class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
     """
@@ -26,14 +28,20 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
     # Nota: Al no sobreescribir ningún método, se usa el comportamiento por defecto
     # que sirve archivos del directorio actual y genera listados de directorios
 
-# TODO: Crear una instancia de servidor HTTP
+#Crear una instancia de servidor HTTP
+with socketserver.TCPServer((HOST, PORT), MyRequestHandler) as servidor:
+    print(f"Servidor web corriendo en: http: //{HOST}:{PORT}")
+    print ("precionando Ctrl+C para detener el servidor para detenerlo")
+    try:
 # HTTPServer maneja las conexiones entrantes y delega el procesamiento
 # de peticiones al manejador especificado (MyRequestHandler)
 # Parámetros:
 # - (HOST, PORT): Dirección y puerto donde escuchar
 # - MyRequestHandler: Clase que manejará las peticiones HTTP
 
-# TODO: Iniciar el servidor y ponerlo en ejecución continua
+#Iniciar el servidor y ponerlo en ejecución continua
 # serve_forever() maneja peticiones indefinidamente hasta una interrupción
 # (normalmente con Ctrl+C en la terminal)
-
+    servidor.serve_forever()
+except KeyboardInterrupt:
+    print (servidor, "servidor detenido por el usuario")

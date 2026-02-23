@@ -6,7 +6,7 @@ Objetivo: Crear un servidor TCP que devuelva exactamente lo que recibe del clien
 
 import socket
 
-# TODO: Definir la dirección y puerto del servidor
+#: Definir la dirección y puerto del servidor
 HOST = "localhost"
 PORT = 9000
 

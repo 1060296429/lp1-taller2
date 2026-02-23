@@ -6,24 +6,35 @@ Objetivo: Crear un cliente HTTP que realice una petición GET a un servidor web 
 
 import http.client
 
-# TODO: Definir la dirección y puerto del servidor HTTP
+#  Definir la dirección y puerto del servidor HTTP 
+HOST = "localhost"
+PORT = 8000 #puerto comun para servidores HTTP locales 
 
-# TODO: Crear una conexión HTTP con el servidor
-# HTTPConnection permite establecer conexiones HTTP con servidores
-
-# TODO: Realizar una petición GET al path raíz ('/')
+# : Crear una conexión HTTP con el servidor
+conexion =http.client.HTTPConnection(HOST, PORT)
+try:
+    print("conectando al servidor ...")
+# Realizar una petición GET al path raíz ('/')
+conexion.request("GET", "/")
 # request() envía la petición HTTP al servidor
 # Primer parámetro: método HTTP (GET, POST, etc.)
 # Segundo parámetro: path del recurso solicitado
 
-# TODO: Obtener la respuesta del servidor
-# getresponse() devuelve un objeto HTTPResponse con los datos de la respuesta
+# Obtener la respuesta del servidor
+# devuelve un objeto HTTPResponse con los datos de la respuesta
+respuesta = conexion.getresponse()
+print("estado de la respuesta:", respuesta.status)
+print("razon de la respuesta:", respuesta.reason)
 
-# TODO: Leer el contenido de la respuesta
-# read() devuelve el cuerpo de la respuesta en bytes
+# : Leer el contenido de la respuesta
+datos = respuesta.read()#devuelve el cuerpo de la respuesta en bytes
 
-# TODO: Decodificar los datos de bytes a string e imprimirlos
+#  Decodificar los datos de bytes a string e imprimirlos
+contenido = datos.decode()
+print("\n contenido de la respuesta UTF-8", contenido)
+print(contenido)
 # decode() convierte los bytes a string usando UTF-8 por defecto
-
-# TODO: Cerrar la conexión con el servidor
-
+finally:
+#Cerrar la conexión con el servidor
+conexion.close()
+print("conexion cerrada")
